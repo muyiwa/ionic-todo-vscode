@@ -1,3 +1,5 @@
+/// <reference path="typings/tsd.d.ts" />
+
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
@@ -48,5 +50,20 @@ gulp.task('git-check', function(done) {
     );
     process.exit(1);
   }
+  done();
+});
+
+gulp.task('run', function(done) {
+  sh.exec('ionic run ios -l');
+  done();
+});
+
+gulp.task('serve', function(done) {
+  sh.exec('ionic serve --lab');
+  done();
+});
+
+gulp.task('build ios', function(done) {
+  sh.exec('ionic build ios');
   done();
 });
